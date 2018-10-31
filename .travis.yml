@@ -26,6 +26,9 @@ install: |
     set -ex  # -e = exit on failure; -x = trace for debug
     opam update -y
     opam install -y -j ${NJOBS} coq-mathcomp-ssreflect
+    opam config list
+    opam repo list
+    opam list
     "
 
 script:
