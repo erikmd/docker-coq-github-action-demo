@@ -42,6 +42,7 @@ script:
     sudo chown -R coq:coq /home/coq/${CONTRIB_NAME}
     coq_makefile -f _CoqProject -o Makefile
     make
+    make install
     "
 - docker stop COQ  # optional
 - echo -en 'travis_fold:end:script\\r'
