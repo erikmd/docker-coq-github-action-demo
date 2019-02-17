@@ -15,6 +15,7 @@ env:
   - COQ_IMAGE="coqorg/coq:8.6"
   - COQ_IMAGE="coqorg/coq:8.7"
   - COQ_IMAGE="coqorg/coq:8.8"
+  - COQ_IMAGE="coqorg/coq:8.9"
   - COQ_IMAGE="coqorg/coq:dev"
 
 install: |
