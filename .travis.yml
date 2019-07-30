@@ -39,7 +39,7 @@ script:
     set -ex
     sudo chown -R coq:coq /home/coq/${CONTRIB_NAME}
     coq_makefile -f _CoqProject -o Makefile  # TODO: update configuration/build step
-    ( make && make install )
+    ( make -j ${NJOBS} && make install )
     " script
 - echo -en 'travis_fold:end:script\\r'
 
