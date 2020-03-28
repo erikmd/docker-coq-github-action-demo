@@ -42,8 +42,8 @@ jobs:
           endGroup
           startGroup Build
             opam install -y -v -j 2 $PACKAGE
+            opam list
           endGroup
-          opam list
           startGroup Uninstallation test
             opam remove $PACKAGE
           endGroup
