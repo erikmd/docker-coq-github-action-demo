@@ -4,12 +4,12 @@ name: CI
 
 # Controls when the action will run.
 # cf. https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#filtering-for-specific-branches-tags-and-paths
-# Triggers the workflow on all push events, or pull request events
-# only for the master branch:
+# Triggers the workflow on push events or pull request events for the
+# master branch only:
 on:
   push:
     branches:
-      - '**'
+      - master
   pull_request:
     branches:
       - master
