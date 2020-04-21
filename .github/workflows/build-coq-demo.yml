@@ -70,6 +70,7 @@ jobs:
           - mathcomp/mathcomp-dev:coq-dev
       max-parallel: 4
     steps:
+    - uses: actions/checkout@v2
     - uses: erikmd/docker-coq-action@custom_image
       id: docker-mathcomp-action
       with:
