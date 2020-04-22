@@ -44,11 +44,16 @@ jobs:
         coq_version: ${{ matrix.coq_version }}
         ocaml_version: ${{ matrix.ocaml_version }}
         custom_script: |
+          startGroup Test UID+GID
+            pwd
+            ls -hal
+            stat -c "UID=%u,GID=%g %n" $WORKDIR/$PACKAGE.opam
+          endGroup
           startGroup Print opam config
             opam config list; opam repo list; opam list
           endGroup
           startGroup Fetch dependencies
-            opam pin add -n -y -k path $PACKAGE .
+            opam pin add -n -y -k path $PACKAGE $WORKDIR
             opam update -y
           endGroup
           startGroup Build
