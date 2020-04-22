@@ -47,6 +47,11 @@ jobs:
           startGroup Test UID+GID
             pwd
             ls -hal
+            touch test || true
+            id
+            sudo chown -R coq:coq .
+            touch test
+            ls -hal
             stat -c "UID=%u,GID=%g %n" $WORKDIR/$PACKAGE.opam
           endGroup
           startGroup Print opam config
