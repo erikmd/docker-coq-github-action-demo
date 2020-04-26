@@ -29,6 +29,8 @@ jobs:
       # at most 20 concurrent jobs per free account:
       # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#usage-limits
       max-parallel: 4
+      # don't cancel all in-progress jobs if one matrix job fails:
+      fail-fast: false
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -50,6 +52,7 @@ jobs:
           - mathcomp/mathcomp:1.11.0-coq-dev
           - mathcomp/mathcomp-dev:coq-dev
       max-parallel: 4
+      fail-fast: false
     steps:
     - uses: actions/checkout@v2
     - uses: coq-community/docker-coq-action@v1
