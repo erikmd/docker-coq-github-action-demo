@@ -1,5 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
+# This is a workflow example relying on docker-coq-action
 name: CI
 
 # Controls when the action will run.
@@ -15,13 +14,12 @@ on:
       - master
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# This workflow contains two jobs, build and mathcomp:
 jobs:
-  # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on;
     # the OS must be GNU/Linux to be able to use the docker-coq-action
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         coq_version:
@@ -36,34 +34,11 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - run: id
     - uses: erikmd/docker-coq-action@master
-      id: docker-coq-action
       with:
         opam_file: 'coq-demo.opam'
         coq_version: ${{ matrix.coq_version }}
         ocaml_version: ${{ matrix.ocaml_version }}
-        custom_script: |
-          startGroup Test UID+GID
-            id
-            pwd
-            ls -hal
-            stat -c "UID=%u,GID=%g %n" $WORKDIR/$PACKAGE.opam
-          endGroup
-          startGroup Print opam config
-            opam config list; opam repo list; opam list
-          endGroup
-          startGroup Fetch dependencies
-            opam pin add -n -y -k path $PACKAGE $WORKDIR
-            opam update -y
-          endGroup
-          startGroup Build
-            opam install -y -v -j 2 $PACKAGE
-            opam list
-          endGroup
-          startGroup Uninstallation test
-            opam remove $PACKAGE
-          endGroup
 
   mathcomp:
     runs-on: ubuntu-latest
@@ -78,7 +53,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: erikmd/docker-coq-action@master
-      id: docker-mathcomp-action
       with:
         opam_file: './coq-demo.opam'
         custom_image: ${{ matrix.image }}
