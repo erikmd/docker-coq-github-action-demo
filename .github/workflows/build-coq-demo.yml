@@ -36,7 +36,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    - run: id
     - uses: erikmd/docker-coq-action@master
       id: docker-coq-action
       with:
@@ -45,6 +45,7 @@ jobs:
         ocaml_version: ${{ matrix.ocaml_version }}
         custom_script: |
           startGroup Test UID+GID
+            id
             pwd
             ls -hal
             stat -c "UID=%u,GID=%g %n" $WORKDIR/$PACKAGE.opam
