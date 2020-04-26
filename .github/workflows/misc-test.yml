@@ -1,0 +1,33 @@
+# a few tests, not intended for demo purposes
+name: misc-test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  uid-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: id
+    - uses: erikmd/docker-coq-action@master
+      with:
+        opam_file: './coq-demo.opam'
+        coq_version: 'latest'
+        ocaml_version: '4.07-flambda'
+        custom_script: |
+          # small test, not intended for demo purposes
+          startGroup Test UID+GID
+            id
+            pwd
+            ls -hal
+            stat -c "UID=%u,GID=%g %n" $WORKDIR/$PACKAGE.opam
+          endGroup
+          startGroup Print opam config
+            opam config list; opam repo list; opam list
+          endGroup
