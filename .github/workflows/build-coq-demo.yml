@@ -56,3 +56,9 @@ jobs:
       with:
         opam_file: './coq-demo.opam'
         custom_image: ${{ matrix.image }}
+
+# Remark:
+# you may want to add the following badge to your README.md:
+# [![CI](https://github.com/$USER/$REPO/workflows/CI/badge.svg?branch=master)](https://github.com/$USER/$REPO/actions?query=workflow%3ACI)
+# after replacing $USER/$REPO to use your project namespace; note also
+# that CI is the workflow name, defined at the beginning of this file.
