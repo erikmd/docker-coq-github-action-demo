@@ -4,7 +4,7 @@
 
 Demo of:
 
-* [docker-coq-action](https://github.com/erikmd/docker-coq-action),
+* [docker-coq-action](https://github.com/coq-community/docker-coq-action),
 * [docker-coq](https://hub.docker.com/r/coqorg/coq) and
   [docker-mathcomp](https://hub.docker.com/r/mathcomp/mathcomp) images,
 * *via* a **CI workflow defined in [build-coq-demo.yml](./.github/workflows/build-coq-demo.yml)**,
