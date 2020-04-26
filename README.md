@@ -7,8 +7,8 @@ Demo of:
 * [docker-coq-action](https://github.com/erikmd/docker-coq-action),
 * [docker-coq](https://hub.docker.com/r/coqorg/coq) and
   [docker-mathcomp](https://hub.docker.com/r/mathcomp/mathcomp) images,
-* and a workflow named [build-coq-demo.yml](./.github/workflows/build-coq-demo.yml),
-* relying on [coq-demo.opam](./coq-demo.opam)
+* *via* a **CI workflow defined in [build-coq-demo.yml](./.github/workflows/build-coq-demo.yml)**,
+* relying on a [coq-demo.opam](./coq-demo.opam) package specification.
 
 Note: you can add a badge in your `README.md`, like that of this demo:
 
