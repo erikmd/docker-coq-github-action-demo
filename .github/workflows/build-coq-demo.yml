@@ -38,9 +38,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: coq-community/docker-coq-action@v1
+      - uses: coq-community/docker-coq-action@optional-opam-file
         with:
-          opam_file: 'coq-demo.opam'
+          # opam_file: 'coq-demo.opam'
+          opam_file: '.'
           coq_version: ${{ matrix.coq_version }}
           ocaml_version: ${{ matrix.ocaml_version }}
 
@@ -51,7 +52,6 @@ jobs:
         image:
           - mathcomp/mathcomp:1.10.0-coq-8.10
           - mathcomp/mathcomp:1.10.0-coq-8.11
-          - mathcomp/mathcomp:1.11.0-coq-dev
           - mathcomp/mathcomp-dev:coq-dev
       max-parallel: 4
       fail-fast: false
