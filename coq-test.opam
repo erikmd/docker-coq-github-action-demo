@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "erik@martin-dorel.org"
+version: "dev"
+
+homepage: "https://github.com/erikmd/docker-coq-github-action-demo"
+dev-repo: "git+https://github.com/erikmd/docker-coq-github-action-demo.git"
+bug-reports: "https://github.com/erikmd/docker-coq-github-action-demo/issues"
+license: "MIT"
+
+synopsis: "Demo of docker-coq-action"
+description: """
+Demo of docker-coq-action.
+"""
+
+build: [
+  ["sh" "-c" "coq_makefile src/test.v -o Makefile2"]
+  [make "-j%{jobs}%" "-f" "Makefile2"]
+]
+install: [make "install" "-f" "Makefile2"]
+
+depends: [
+  "ocaml" {>= "4.05.0"}
+  "coq" {(>= "8.6") | (= "dev")}
+]
+
+tags: [
+]
+authors: [
+  "Erik Martin-Dorel"
+]
