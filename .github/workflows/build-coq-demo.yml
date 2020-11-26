@@ -53,6 +53,8 @@ jobs:
           - mathcomp/mathcomp:1.10.0-coq-8.11
           - mathcomp/mathcomp:1.11.0-coq-dev
           - mathcomp/mathcomp-dev:coq-dev
+        matrix_script:
+          - "opam pin list"
       max-parallel: 4
       fail-fast: false
     steps:
@@ -66,6 +68,7 @@ jobs:
             sudo apt-get update -y -q
             sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends emacs
           before_script: |
+            ${{matrix_script}}
             opam config report
           after_script: |
             emacs --version
