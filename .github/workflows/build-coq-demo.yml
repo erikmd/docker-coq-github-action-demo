@@ -48,7 +48,7 @@ jobs:
               opam update -y
               opam install -y -j 2 $PACKAGE --deps-only
             endGroup
-          export: 'first_example OPAMWITHTEST'
+          export: 'first_example OPAMWITHTEST $foo'
         env:
           first_example: 'some value'
           OPAMWITHTEST: true
