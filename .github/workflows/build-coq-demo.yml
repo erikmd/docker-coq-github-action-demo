@@ -57,10 +57,18 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - uses: coq-community/docker-coq-action@v1
+      - uses: coq-community/docker-coq-action@split-script
         with:
           opam_file: './coq-demo.opam'
           custom_image: ${{ matrix.image }}
+          # Dummy test for https://github.com/coq-community/docker-coq-action/pull/33
+          before_install: |
+            sudo apt-get update -y -q
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends emacs
+          before_script: |
+            opam config report
+          after_script: |
+            emacs --version
 
 # Remark:
 # you may want to add the following badge to your README.md:
