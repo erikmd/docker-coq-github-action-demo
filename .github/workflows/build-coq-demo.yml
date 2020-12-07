@@ -51,7 +51,7 @@ jobs:
         image:
           - mathcomp/mathcomp:1.10.0-coq-8.10
           - mathcomp/mathcomp:1.10.0-coq-8.11
-          - mathcomp/mathcomp:1.11.0-coq-dev
+          # - mathcomp/mathcomp:1.11.0-coq-dev
           - mathcomp/mathcomp-dev:coq-dev
       max-parallel: 4
       fail-fast: false
