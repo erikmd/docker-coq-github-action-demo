@@ -1,5 +1,5 @@
 # This is a workflow example relying on docker-coq-action
-name: CI
+name: Docker CI
 
 # Controls when the action will run:
 # https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#filtering-for-specific-branches-tags-and-paths

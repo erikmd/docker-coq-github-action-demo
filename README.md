@@ -1,6 +1,6 @@
 # docker-coq-github-action-demo
 
-[![CI](https://github.com/erikmd/docker-coq-github-action-demo/workflows/CI/badge.svg?branch=master)](https://github.com/erikmd/docker-coq-github-action-demo/actions?query=workflow%3ACI)
+[![Docker CI](https://github.com/erikmd/docker-coq-github-action-demo/workflows/Docker%20CI/badge.svg?branch=master)](https://github.com/erikmd/docker-coq-github-action-demo/actions?query=workflow%3A"Docker CI")
 
 Demo of:
 
@@ -13,9 +13,9 @@ Demo of:
 Note: you can add a badge in your `README.md`, like that of this demo:
 
 ```
-[![CI](https://github.com/$USER/$REPO/workflows/CI/badge.svg?branch=master)](https://github.com/$USER/$REPO/actions?query=workflow%3ACI)
+[![Docker CI](https://github.com/$USER/$REPO/workflows/Docker%20CI/badge.svg?branch=master)](https://github.com/$USER/$REPO/actions?query=workflow%3A"Docker%20CI")
 ```
 
 after replacing `$USER/$REPO` to use your project namespace; note also
-that CI is the workflow name, defined at the beginning of [this file](
-./.github/workflows/build-coq-demo.yml).
+that `Docker CI` is the workflow name, defined at the beginning of
+[this file]( ./.github/workflows/build-coq-demo.yml).
