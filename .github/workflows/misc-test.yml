@@ -10,7 +10,7 @@ on:
       - '**'
 
 jobs:
-  ulimit-test:
+  ulimit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,3 +21,22 @@ jobs:
           custom_image: 'coqorg/coq:8.13-native-ocaml-4.07'
           custom_script: |
             ulimit -a
+
+  test:
+    # the OS must be GNU/Linux to be able to use the docker-coq-action
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image:
+          - 'coqorg/coq:8.13-native-ocaml-4.07'
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'coq-community/graph-theory'
+          ref: 'ec5f2f3e37ed4485108796f6a35037ce1c6e270f'
+      - run: ls -Rhal
+      - uses: coq-community/docker-coq-action@v1
+        with:
+          opam_file: 'coq-graph-theory.opam'
+          custom_image: ${{ matrix.image }}
