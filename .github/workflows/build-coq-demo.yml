@@ -1,5 +1,5 @@
 # This is a workflow example relying on docker-coq-action.
-name: CI
+name: Docker CI
 
 # Controls when the action will run:
 # https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#filtering-for-specific-branches-tags-and-paths
@@ -87,6 +87,6 @@ jobs:
 # as the name of this .yml file plays no role.
 #
 # You may want to add the following badge to your README.md:
-# [![CI](https://github.com/$USER/$REPO/workflows/CI/badge.svg?branch=master)](https://github.com/$USER/$REPO/actions?query=workflow%3ACI)
+# [![Docker CI](https://github.com/$USER/$REPO/workflows/Docker%20CI/badge.svg?branch=master)](https://github.com/$USER/$REPO/actions?query=workflow:"Docker%20CI")
 # after replacing $USER/$REPO to use your project namespace; note also
-# that CI is the workflow name, defined at the beginning of this file.
+# that "Docker CI" is the workflow name, defined at the beginning of this file.
