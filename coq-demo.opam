@@ -18,6 +18,8 @@ build: [
 ]
 install: [make "install"]
 
+run-test: [make "test"]
+
 depends: [
   "ocaml" {>= "4.05.0"}
   "coq" {(>= "8.6") | (= "dev")}
