@@ -84,3 +84,26 @@ jobs:
             echo "$SOME_LOCAL_VAR"
             
             set -x
+
+  uuid-leak-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Run coq-community/docker-coq-action@v1 with debian:10'
+        uses: coq-community/docker-coq-action@v1
+        with:
+          custom_image: 'debian:10'
+          custom_script: |
+            apt-get update -y -q
+            DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends \
+              ca-certificates \
+              curl \
+              uuid-runtime
+            startGroup "Risky example"
+              TOKEN=$(uuidgen -r)  # don't do this here, see PR #12
+              curl -fsS -X POST -F token="$TOKEN" https://example.com >/dev/null
+            endGroup
+            startGroup "Another example"
+              set +x; TOKEN=$(uuidgen -r)
+              curl -fsS -X POST -F token="$TOKEN" https://example.com >/dev/null
+              set -x
+            endGroup
