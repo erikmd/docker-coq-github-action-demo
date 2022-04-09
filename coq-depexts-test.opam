@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "erik@martin-dorel.org"
+version: "dev"
+
+homepage: "https://github.com/erikmd/docker-coq-github-action-demo"
+dev-repo: "git+https://github.com/erikmd/docker-coq-github-action-demo.git"
+bug-reports: "https://github.com/erikmd/docker-coq-github-action-demo/issues"
+license: "MIT"
+
+synopsis: "Test of opam-2.1 depext feature"
+description: """
+Test of opam-2.1 depext feature, used in coq-community/docker-coq-action's CI.
+"""
+
+build: [
+  ["sh" "-c" "echo build"]
+  ["sh" "-c" "gappa --version"] {with-test}
+]
+
+install: ["sh" "-c" "echo install"]
+
+depends: [
+  "gappa"
+]
+
+tags: [
+]
+
+authors: [
+  "Erik Martin-Dorel"
+]
