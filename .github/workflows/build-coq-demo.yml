@@ -29,10 +29,8 @@ jobs:
         # Browse URL: https://github.com/coq-community/docker-coq/wiki#supported-tags
         # to get the list of supported (coq, ocaml) versions in coqorg/coq.
         coq_version:
-          - '8.15'
+          - '8.19'
           - 'dev'
-        ocaml_version:
-          - '4.07-flambda'
       # at most 20 concurrent jobs per free account:
       # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#usage-limits
       max-parallel: 4
@@ -49,7 +47,6 @@ jobs:
         with:
           opam_file: 'coq-demo.opam'
           coq_version: ${{ matrix.coq_version }}
-          ocaml_version: ${{ matrix.ocaml_version }}
           export: 'OPAMWITHTEST'
         env:
           OPAMWITHTEST: 'true'
@@ -63,7 +60,7 @@ jobs:
         # Browse URL: https://hub.docker.com/r/mathcomp/mathcomp#supported-tags
         # to get the list of supported tags in mathcomp/mathcomp
         image:
-          - mathcomp/mathcomp:latest-coq-8.15
+          - mathcomp/mathcomp:latest-coq-8.19
           # - mathcomp/mathcomp:latest-coq-dev
           - mathcomp/mathcomp-dev:coq-dev
       # at most 20 concurrent jobs per free account:
