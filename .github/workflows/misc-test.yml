@@ -19,7 +19,6 @@ jobs:
         with:
           opam_file: './coq-demo.opam'
           coq_version: 'latest'
-          ocaml_version: '4.07-flambda'
           custom_script: |
             # small test, not intended for demo purposes
             startGroup Test UID+GID
